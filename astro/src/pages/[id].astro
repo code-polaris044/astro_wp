@@ -1,0 +1,15 @@
+---
+export async function getStaticPaths() {
+    const res = await fetch("http://localhost:10090/wp-json/wp/v2/posts");
+    const posts = await res.json();
+
+    const paths = posts.map((post) => ({
+        params: {
+            id: post.id.toString()
+        }
+    }));
+
+    return paths
+
+}
+---
