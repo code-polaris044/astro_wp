@@ -1,3 +1,9 @@
+---
+const res = await fetch("http://localhost:10090/wp-json/wp/v2/posts");
+const posts = await res.json();
+
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +12,20 @@
 	<title>astro-wp-blog</title>
 </head>
 <body>
-	
+	<div class="container max-w-xl mx-auto">
+		<h1 class="font-bold mt-5">My Blog</h1>
+
+		<ul>
+			{posts.map((post) =>
+			<li class="mt-5">
+				<a href="">
+					<h2 class="font-bold" set:html={post.title.rendered}/>
+					<p class="text-sm text-gray-400">{post.date.substring(0,10)}</p>
+					<div set:html={post.excerpt.rendered}/>
+				</a>
+			</li>
+		</ul>
+        ) }
+	</div>
 </body>
 </html>
