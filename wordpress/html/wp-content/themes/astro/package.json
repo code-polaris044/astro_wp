@@ -10,5 +10,8 @@
   "license": "ISC",
   "volta": {
     "node": "18.17.1"
+  },
+  "devDependencies": {
+    "sass": "^1.68.0"
   }
 }

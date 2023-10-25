@@ -18,7 +18,7 @@ const posts = await res.json();
 		<ul>
 			{posts.map((post) =>
 			<li class="mt-5">
-				<a href="">
+				<a href={post.id}>
 					<h2 class="font-bold" set:html={post.title.rendered}/>
 					<p class="text-sm text-gray-400">{post.date.substring(0,10)}</p>
 					<div set:html={post.excerpt.rendered}/>
